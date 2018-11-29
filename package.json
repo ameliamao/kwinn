@@ -1,7 +1,7 @@
 {
-  "name": "simple_webpack_boilerplate",
+  "name": "Kwinn",
   "version": "1.0.0",
-  "description": "A ready to use simple webpack boilerplate",
+  "description": "Anime website",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1"
   }
 }
