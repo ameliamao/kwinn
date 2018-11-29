@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from  './NavigationItem.css';
 import './NavigationItem.css';
+import { connect } from 'react-redux';
+import {Redirect, withRouter} from 'react-router-dom';
+
 
 class NavigationItem extends Component{
     constructor(props) {
@@ -32,5 +35,15 @@ class NavigationItem extends Component{
 };
 
 
+const mapStateToProps = (state) => {
+    return {
+        articles: state.main.articles,
+    }
+}
 
-export default NavigationItem;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getArticles: () => dispatch(actions.getArticles()),
+    };
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavigationItem));

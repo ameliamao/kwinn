@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Toolbar from '../../components/UI/Toolbar/Toolbar';
 import Footer from '../../components/Footer/Footer';
 import './MainDashboard.css';
+import { connect } from 'react-redux';
+import {Redirect, withRouter} from 'react-router-dom';
 
 
 
@@ -31,4 +33,15 @@ class MainDashboard extends Component{
 
 }
 
-export default MainDashboard;
+const mapStateToProps = (state) => {
+    return {
+        articles: state.main.articles,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getArticles: () => dispatch(actions.getArticles()),
+    };
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainDashboard));

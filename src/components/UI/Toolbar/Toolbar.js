@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classes from  './Toolbar.css';
 import './Toolbar.css';
 import NavItems from '../NavigationItems/NavigationItems';
+import { connect } from 'react-redux';
+import {Redirect, withRouter} from 'react-router-dom';
 
 
 
@@ -27,4 +29,15 @@ class Toolbar extends Component{
 
 }
 
-export default Toolbar;
+export default Toolbar;const mapStateToProps = (state) => {
+    return {
+        articles: state.main.articles,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getArticles: () => dispatch(actions.getArticles()),
+    };
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Toolbar));
