@@ -29,7 +29,7 @@ class Toolbar extends Component{
 
 }
 
-export default Toolbar;const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         articles: state.main.articles,
     }
